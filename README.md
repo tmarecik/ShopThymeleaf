@@ -1,3 +1,5 @@
 # ShopThymeleaf
 
-Zajęcia z frondendy drugi zjazd
+Zajęcia z frondendu 
+
+drugi zjazd
