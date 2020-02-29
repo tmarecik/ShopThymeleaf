@@ -35,6 +35,11 @@ public class ProductDaoImpl implements ProductDao {
         return new ArrayList<>(productMap.values());
     }
 
+    @Override
+    public void removeProduct(Long id) {
+        productMap.remove(id);
+    }
+
     private void prepareProductList() {
         Product product = new Product();
         product.setName("Produkt1");
@@ -44,11 +49,15 @@ public class ProductDaoImpl implements ProductDao {
         saveProduct(product);
 
         Product product2 = new Product();
-        product.setName("Produkt2");
-        product.setPrice(250);
-        product.setQuantity(200);
-        product.setAvailable(false);
+        product2.setName("Produkt2");
+        product2.setPrice(250);
+        product2.setQuantity(200);
+        product2.setAvailable(false);
         saveProduct(product2);
     }
 
+    @Override
+    public Product getById(Long id) {
+        return productMap.get(id);
+    }
 }

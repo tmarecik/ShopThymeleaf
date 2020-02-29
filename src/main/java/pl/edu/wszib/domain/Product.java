@@ -6,7 +6,7 @@ public class Product {
     private long id;
     private String name;
     private int quantity;
-    private int price;
+    private double price;
     private boolean available;
 
 
@@ -34,11 +34,11 @@ public class Product {
         this.quantity = quantity;
     }
 
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
