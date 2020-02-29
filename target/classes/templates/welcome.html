@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../static/css/uikit.min.css" th:href="@{css/uikit.min.css}">           <!--tutaj podlinkowane zostaly dwa stylowaia co daje
+                                                                                                        mozliwosc uruchomienia bezposrednio
+                                                                                                        przez przegladarke, jak i również prze thymelif'a -->
+
+</head>
+<body>
+<!--    <h1 th:text="Welcome"></h1>   ten na sztywno-->
+<!--    <h1 th:text="#{welcome}"></h1>-->
+<!--    <h1 th:text="#{enter}"></h1>-->
+
+    <div class="uk-card-default uk-card uk-card-body" style="width: 400px; margin: 300px auto">
+        <h2 class="uk-text-center uk-card-title">Adam</h2>
+        <h2 class="uk-text-center uk-card-title" th:text="#{welcome}">Witaj w sklepie</h2>
+        <a th:href="@{shipping}" class="uk-button uk-button-secondary uk-width-1-1" th:text="#{enter}">Wejdż</a>
+        <!-- th:href="@{shipping}" przenosi nas na strone shiping localhost8080/shipping-->
+    </div>
+
+
+</body>
+</html>
