@@ -18,9 +18,9 @@ public class UserController {
     @Autowired
     private UserDao userDao;
 
-    @GetMapping("user/new")
+    @GetMapping("users/new")
     public String newUser(Model model){
-        model.addAttribute("users", new User());
+        model.addAttribute("user", new User());
         return "user";
     }
 
@@ -33,7 +33,7 @@ public class UserController {
     @GetMapping("users/remove/{id}")
     public String remove(@PathVariable Long id){
         userDao.removeUser(id);
-        return "redirect:/user";
+        return "redirect:/users";
     }
 
     @GetMapping("users/edit/{id}")

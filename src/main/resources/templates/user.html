@@ -1,43 +1,44 @@
 <!DOCTYPE html>
 <html xmlns:th="https://www.thymeleaf.org" th:replace="~{fragments/layout ::layout(~{::.container})}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
 <body>
 
 <div class="container">
-    <h2>Użytkownicy</h2>
+    <form style="width: 400px; margin: auto" th:object="${user}" th:action="@{/users/save}" method="post"> <!--action informyje gdzie ten formulz zostanie przekazany -->
+        <div class="uk-margin">
+            <label>Login</label>
+            <input th:field="*{login}" type="text" class="uk-input">
+        </div>
 
-    <table class="uk-table uk-table-striped">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Login</th>
-                <th>Email</th>
-                <th>Age</th>
-                <th>Country</th>
-                <th>Active</th>
+        <div class="uk-margin">
+            <label>Email</label>
+            <input th:field="*{email}" type="text" step="0.01" class="uk-input">
+        </div>
 
-            </tr>
-        </thead>
+        <div class="uk-margin">
+            <label>Wiek</label>
+            <input th:field="*{age}" type="number" class="uk-input">
+        </div>
 
+        <div class="uk-margin">
+            <label>Kraj</label>
+            <input th:field="*{country}" type="text" class="uk-input">
+        </div>
 
-        <tbody>
-        <tr th:each="user: ${users}">     <!--product jest zdwfiniowany z kontroloerze-->
-            <td th:text="${user.id}"></td>
-            <td th:text="${user.login}"></td>
-            <td th:text="${user.email}"></td>
-            <td th:text="${user.age}"></td>
-            <td th:text="${user.country}"></td>
-            <td><span th:uk-icon="${user.active} ? 'check' : 'close'"></span></td>
-            <td style="width:250px">
-                <a th:href="@{/user/edit/{id}(id=${user.id})}"><input class="uk-button uk-button-primary" value="Edytuj" type="button"></a>
-                <a th:href="@{/user/remove/{id}(id=${user.id})}"><input class="uk-button uk-button-danger" value="Usuń" type="button"></inut></a>
-            </td>
-        </tr>
-        </tbody>
-    </table>
+        <div class="uk-margin">
+            <label>Aktywny</label>
+            <input th:field="*{active}" type="checkbox" class="uk-checkbox">
+        </div>
 
-    <div>
-        <a th:href="@{/user/new}"><input style="background-color: #32d296; color:white" class="uk-button" value="Dodaj Użytkownika" type="button"></a>
-    </div>
+        <input th:field="*{id}" type="number" hidden>
+        <a th:href="@{/users}"><input class="uk-button uk-button-danger" type="button" value="Anuluj"></a>
+        <input type="submit" class="uk-button uk-button-primary" value="Zapisz">
+
+    </form>
+
 
 </div>
 

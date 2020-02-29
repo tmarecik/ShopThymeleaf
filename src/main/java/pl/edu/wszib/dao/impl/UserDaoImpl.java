@@ -32,6 +32,7 @@ public class UserDaoImpl implements UserDao {
             user.setId(id);
             id++;
         }
+        userMap.put(user.getId(), user);
     }
 
 
