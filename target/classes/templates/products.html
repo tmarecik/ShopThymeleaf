@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" th:replace="~{fragments/layout ::layout(~{::.container})}">
+<body>
+
+<div class="container">
+    <h2>Produkty</h2>
+
+    <table class="uk-table uk-table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nazwa</th>
+                <th>Cena</th>
+                <th>Ilość</th>
+                <th>Dsotępność</th>
+                <th>Akcja</th>
+
+            </tr>
+        </thead>
+
+<!--        to zostało zastapione tym p0onizej-->
+
+<!--         <tbody>-->
+<!--             <tr th:each="product: ${products}">     //product jest zdwfiniowany z kontroloerze-->
+<!--                 <td>2</td>-->
+<!--                 <td>Mleko</td>-->
+<!--                 <td>5</td>-->
+<!--                 <td>1000</td>-->
+<!--                 <td><span uk-icon="icon: check" ></span></td>-->
+<!--                 <td style="width:250px">-->
+<!--                     <a><input class="uk-button uk-button-primary" value="Edytuj" type="button"></inut></a>-->
+<!--                     <a><input class="uk-button uk-button-danger" value="Usuń" type="button"></inut></a>-->
+<!--                 </td>-->
+<!--             </tr>-->
+<!--         </tbody>-->
+
+        <tbody>
+        <tr th:each="product: ${products}">     <!--product jest zdwfiniowany z kontroloerze-->
+            <td th:text="${product.id}"></td>
+            <td th:text="${product.name}"></td>
+            <td th:text="|${#numbers.formatDecimal(product.price, 1 ,2)} zł|"></td>
+            <td th:text="${product.quantity}"></td>
+            <td><span th:uk-icon="${product.available} ? 'check' : 'close'"></span></td>
+            <td style="width:250px">
+                <a th:href="@{/products/edit/{id}(id=${product.id})}"><input class="uk-button uk-button-primary" value="Edytuj" type="button"></a>
+                <a th:href="@{/products/remove/{id}(id=${product.id})}"><input class="uk-button uk-button-danger" value="Usuń" type="button"></inut></a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div>
+        <a th:href="@{/products/new}"><input style="background-color: #32d296; color:white" class="uk-button" value="Dodaj Produkt" type="button"></a>
+    </div>
+
+</div>
+
+</body>
+</html>
