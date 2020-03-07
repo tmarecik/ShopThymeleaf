@@ -49,4 +49,10 @@ public class UserController {
         return "users";
     }
 
+    @GetMapping("users/inactive")
+    public String setUsersInactive(){
+        userDao.setUsersInactive();
+        return "redirect:/users";
+    }
+
 }

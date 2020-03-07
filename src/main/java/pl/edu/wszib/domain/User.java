@@ -9,6 +9,18 @@ public class User {
     private String country;
     private boolean active;
 
+    public User() {
+    }
+
+    public User(long id, String login, String email, int age, String country, boolean active) {
+        this.id = id;
+        this.login = login;
+        this.email = email;
+        this.age = age;
+        this.country = country;
+        this.active = active;
+    }
+
     public long getId() {
         return id;
     }
