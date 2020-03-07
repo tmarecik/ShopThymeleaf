@@ -1,5 +1,5 @@
 # ShopThymeleaf
 
-Zajęcia z frondendu 
+fron sklep -> thymeleaf
 
-drugi zjazd
+drugi zjazd z frontów
